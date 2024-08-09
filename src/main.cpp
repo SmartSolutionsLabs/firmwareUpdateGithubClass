@@ -5,7 +5,7 @@
 #define JSON_URL   "https://raw.githubusercontent.com/SmartSolutionsLabs/firmwareUpdateGithubClass/main/src/manifestURL.json" // this is where you'll post your JSON filter file
 #define SSID 	   "SELECTRONICS"
 #define PASS       "CSSAC202"
-#define VERSION    "0.0.1" // The current version of this program
+#define VERSION    "0.0.0" // The current version of this program
 
 const char *errtext(int code);
 
@@ -35,13 +35,17 @@ void setup()
 	ota.SetCallback(callback);
 	Serial.printf("We are running version %s of the sketch, Board='%s', Device='%s'.\n", VERSION, ARDUINO_BOARD, WiFi.macAddress().c_str());
 	Serial.printf("Checking %s to see if an update is available...\n", JSON_URL);
-	int ret;
+	int ret = ota.CheckForOTAUpdate(JSON_URL, VERSION);
+	Serial.printf("CheckForOTAUpdate returned %d (%s)\n\n", ret, errtext(ret));
+
+	delay(3000);
 
 	// Second example: update *will* happen because we are pretending we have an earlier version
 	Serial.printf("But if we pretend like we're running version 0.0.0, we SHOULD see an update happen.\n");
 	ret = ota.CheckForOTAUpdate(JSON_URL, "0.0.0");
 	Serial.printf("(If the update succeeds, the reboot should prevent us ever getting here.)\n");
 	Serial.printf("CheckOTAForUpdate returned %d (%s)\n\n", ret, errtext(ret));
+
 }
 
 void loop()
