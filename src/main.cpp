@@ -34,7 +34,6 @@ void setup()
 	Serial.printf("Check for update and download it, but don't reboot.  Display dots.\n");
 	int ret = ota
 		.SetCallback(callback)
-		.AllowDowngrades(true)
 		.CheckForOTAUpdate(JSON_URL, "0.0.0", ESP32OTAPull::UPDATE_AND_BOOT);
 	Serial.printf("CheckForOTAUpdate returned %d (%s)\n\n", ret, errtext(ret));
 
