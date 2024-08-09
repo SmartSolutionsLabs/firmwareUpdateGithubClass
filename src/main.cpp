@@ -5,7 +5,7 @@
 #define JSON_URL   "https://raw.githubusercontent.com/SmartSolutionsLabs/firmwareUpdateGithubClass/main/src/manifestURL.json" // this is where you'll post your JSON filter file
 #define SSID 	   "SELECTRONICS"
 #define PASS       "CSSAC202"
-#define VERSION    "1.0.0" // The current version of this program
+#define VERSION    "0.0.1" // The current version of this program
 
 const char *errtext(int code);
 
