@@ -1,7 +1,7 @@
 {
     "Configurations": [
       {
-        "Board": "Espressif ESP32-S3-DevKitC-1-N8 (8 MB QD, No PSRAM)",
+        "Board": "ESP32S3_DEV",
         "Version": "0.0.1",
         "Device": "DC:DA:0C:3C:30:78",
         "Config": "",
