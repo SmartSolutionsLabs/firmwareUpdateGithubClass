@@ -1,11 +1,11 @@
 {
     "Configurations": [
       {
-        "Board": "ESP32S3_DEV",
+        "Board": "Espressif ESP32 Dev Module",
         "Version": "0.0.1",
         "Device": "DC:DA:0C:3C:30:78",
         "Config": "",
-        "URL": "https://raw.githubusercontent.com/SmartSolutionsLabs/firmwareUpdateGithubClass/releases/download/0.0.1/firmware.bin"
+        "URL": "https://github.com/SmartSolutionsLabs/firmwareUpdateGithubClass/releases/download/0.0.1/firmware.bin"
       }
     ]
   }
