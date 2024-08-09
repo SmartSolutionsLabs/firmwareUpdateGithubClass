@@ -84,7 +84,10 @@ const char *errtext(int code)
 void DisplayInfo()
 {
 	char exampleImageURL[256];
-	snprintf(exampleImageURL, sizeof(exampleImageURL), "https://example.com/Basic-OTA-Example-%s-%s.bin", ARDUINO_BOARD, VERSION);
+	snprintf(exampleImageURL, sizeof(exampleImageURL), 
+		"https://github.com/SmartSolutionsLabs/firmwareUpdateGithubClass/releases/download/%s/firmware.bin",
+			//ARDUINO_BOARD, 
+			VERSION);
 
 	Serial.printf("Basic-OTA-Example v%s\n", VERSION);
 	Serial.printf("You need to post a JSON (text) file similar to this:\n");
