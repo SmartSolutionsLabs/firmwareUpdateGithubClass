@@ -4,7 +4,7 @@
 #define JSON_URL   "https://raw.githubusercontent.com/SmartSolutionsLabs/firmwareUpdateGithubClass/main/src/manifestURL.json" // this is where you'll post your JSON filter file
 #define SSID 	   "SELECTRONICS"
 #define PASS       "CSSAC202"
-#define VERSION    "0.0.0" // The current version of this program
+#define VERSION    "0.0.1" // The current version of this program
 
 const char *errtext(int code);
 
@@ -34,7 +34,7 @@ void setup()
 	Serial.printf("Check for update and download it, but don't reboot.  Display dots.\n");
 	int ret = ota
 		.SetCallback(callback)
-		.CheckForOTAUpdate(JSON_URL, "0.0.0", ESP32OTAPull::UPDATE_AND_BOOT);
+		.CheckForOTAUpdate(JSON_URL, "0.0.2", ESP32OTAPull::UPDATE_AND_BOOT);
 	Serial.printf("CheckForOTAUpdate returned %d (%s)\n\n", ret, errtext(ret));
 
 	delay(3000);
