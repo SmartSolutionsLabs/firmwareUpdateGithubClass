@@ -2,7 +2,7 @@
     "Configurations": [
       {
         "Version": "0.0.1",
-        "URL": "http://github.com/SmartSolutionsLabs/firmwareUpdateGithubClass/releases/download/0.0.1/firmware.bin"
+        "URL": "https://github.com/SmartSolutionsLabs/firmwareUpdateGithubClass/releases/download/0.0.1/firmware.bin"
       }
     ]
   }

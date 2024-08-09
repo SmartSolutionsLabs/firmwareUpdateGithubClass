@@ -1,4 +1,3 @@
-
 #include <Arduino.h>
 #include "ESP32OTAPull.h"
 
@@ -36,7 +35,7 @@ void setup()
 	int ret = ota
 		.SetCallback(callback)
 		.AllowDowngrades(true)
-		.CheckForOTAUpdate(JSON_URL, "0.0.1", ESP32OTAPull::UPDATE_AND_BOOT);
+		.CheckForOTAUpdate(JSON_URL, "0.0.0", ESP32OTAPull::UPDATE_AND_BOOT);
 	Serial.printf("CheckForOTAUpdate returned %d (%s)\n\n", ret, errtext(ret));
 
 	delay(3000);
@@ -80,7 +79,7 @@ void DisplayInfo()
 {
 	char exampleImageURL[256];
 	snprintf(exampleImageURL, sizeof(exampleImageURL), 
-		"https://github.com/SmartSolutionsLabs/firmwareUpdateGithubClass/releases/download/%s/firmware.bin",
+		"http://github.com/SmartSolutionsLabs/firmwareUpdateGithubClass/releases/download/%s/firmware.bin",
 			//ARDUINO_BOARD, 
 			VERSION);
 
