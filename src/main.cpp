@@ -36,7 +36,8 @@ void setup()
 	int ret = ota
 		.SetCallback(callback)
 		.AllowDowngrades(true)
-		.CheckForOTAUpdate(JSON_URL, "0.0.1", ESP32OTAPull::UPDATE_AND_BOOT);
+		.SetConfig("")
+		.CheckForOTAUpdate(JSON_URL, "0.0.0", ESP32OTAPull::UPDATE_AND_BOOT);
 	Serial.printf("CheckForOTAUpdate returned %d (%s)\n\n", ret, errtext(ret));
 
 	delay(3000);
@@ -106,9 +107,4 @@ void DisplayInfo()
 void callback(int offset, int totallength)
 {
 	Serial.printf("Updating %d of %d (%02d%%)...\n", offset, totallength, 100 * offset / totallength);
-#if defined(LED_BUILTIN) // flicker LED on update
-	static int status = LOW;
-	status = status == LOW && offset < totallength ? HIGH : LOW;
-	digitalWrite(LED_BUILTIN, status);
-#endif
 }
