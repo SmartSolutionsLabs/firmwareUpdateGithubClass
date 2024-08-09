@@ -32,19 +32,13 @@ void setup()
 	// First example: update should NOT occur, because Version string in JSON matches local VERSION value.
 	ESP32OTAPull ota;
 
-	ota.SetCallback(callback);
-	Serial.printf("We are running version %s of the sketch, Board='%s', Device='%s'.\n", VERSION, ARDUINO_BOARD, WiFi.macAddress().c_str());
-	Serial.printf("Checking %s to see if an update is available...\n", JSON_URL);
-	int ret = ota.CheckForOTAUpdate(JSON_URL, VERSION);
+	Serial.printf("Check for update and download it, but don't reboot.  Display dots.\n");
+	int ret = ota
+		.SetCallback(callback)
+		.CheckForOTAUpdate(JSON_URL, VERSION, ESP32OTAPull::UPDATE_BUT_NO_BOOT);
 	Serial.printf("CheckForOTAUpdate returned %d (%s)\n\n", ret, errtext(ret));
 
 	delay(3000);
-
-	// Second example: update *will* happen because we are pretending we have an earlier version
-	Serial.printf("But if we pretend like we're running version 0.0.0, we SHOULD see an update happen.\n");
-	ret = ota.CheckForOTAUpdate(JSON_URL, "0.0.0");
-	Serial.printf("(If the update succeeds, the reboot should prevent us ever getting here.)\n");
-	Serial.printf("CheckOTAForUpdate returned %d (%s)\n\n", ret, errtext(ret));
 
 }
 
