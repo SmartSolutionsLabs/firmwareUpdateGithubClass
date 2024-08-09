@@ -12,17 +12,16 @@ void DisplayInfo();
 
 void callback(int offset, int totallength);
 
-void setup()
-{
+void setup(){
+
 	Serial.begin(115200);
 	delay(2000); // wait for ESP32 Serial to stabilize
-  Serial.println("esp32 On");
+  	Serial.println("esp32 On");
 	DisplayInfo();
 
 	Serial.printf("Connecting to WiFi '%s'...", SSID);
 	WiFi.begin(SSID, PASS);
-	while (!WiFi.isConnected())
-	{
+	while (!WiFi.isConnected()){
 		Serial.print(".");
 		delay(250);
 	}
@@ -34,7 +33,7 @@ void setup()
 	Serial.printf("Check for update and download it, but don't reboot.  Display dots.\n");
 	int ret = ota
 		.SetCallback(callback)
-		.CheckForOTAUpdate(JSON_URL, "0.0.1", ESP32OTAPull::UPDATE_AND_BOOT);
+		.CheckForOTAUpdate(JSON_URL, "0.0.2", ESP32OTAPull::UPDATE_BUT_NO_BOOT);
 	Serial.printf("CheckForOTAUpdate returned %d (%s)\n\n", ret, errtext(ret));
 
 	delay(3000);
