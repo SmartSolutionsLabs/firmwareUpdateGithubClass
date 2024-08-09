@@ -4,7 +4,7 @@
         "Board": "ESP32_DEV",
         "Version": "0.0.1",
         "Device": "30:C6:F7:24:AC:38",
-        "URL": "https://raw.githubusercontent.com/SmartSolutionsLabs/firmwareUpdateGithubClass/main/src/manifestURL.json"
+        "URL": "https://github.com/SmartSolutionsLabs/firmwareUpdateGithubClass/releases/download/0.0.1/firmware.bin"
       }
     ]
   }
