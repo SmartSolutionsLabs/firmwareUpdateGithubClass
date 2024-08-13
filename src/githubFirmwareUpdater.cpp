@@ -86,7 +86,8 @@ void GithubFirmwareUpdater::connect_wifi() {
 
 void GithubFirmwareUpdater::firmwareUpdate(void) {
   WiFiClientSecure client;
-  client.setCACert(this->rootCACertificate);
+  //client.setCACert(this->rootCACertificate);
+  client.setInsecure();
   httpUpdate.setLedPin(9, LOW);
   t_httpUpdate_return ret = httpUpdate.update(client, URL_fw_Bin);
 
@@ -116,8 +117,8 @@ int GithubFirmwareUpdater::firmwareVersionCheck(void) {
   WiFiClientSecure * client = new WiFiClientSecure;
 
   if(client){
-    client->setCACert(rootCACertificate);
-
+    //client->setCACert(rootCACertificate);
+    client->setInsecure();
     // Add a scoping block for HTTPClient https to make sure it is destroyed before WiFiClientSecure *client is
     HTTPClient https;
 

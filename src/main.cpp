@@ -16,6 +16,6 @@ void setup(){
 }
 void loop(){
     board.repeatedCall();
-
-     vTaskDelay(2000 / portTICK_PERIOD_MS);
+    Serial.println("yo soy el actualizado perrako");
+    vTaskDelay(5000 / portTICK_PERIOD_MS);
 }
