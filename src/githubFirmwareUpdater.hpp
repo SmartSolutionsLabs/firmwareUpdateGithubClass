@@ -12,7 +12,7 @@
 //#include "server.h"
 
 #define URL_fw_Version "https://raw.githubusercontent.com/SmartSolutionsLabs/firmwareUpdateGithubClass/main/src/manifestURL.txt"
-#define URL_fw_Bin "https://github.com/SmartSolutionsLabs/firmwareUpdateGithubClass/blob/main/src/firmware.bin"
+#define URL_fw_Bin "https://github.com/SmartSolutionsLabs/firmwareUpdateGithubClass/raw/main/src/firmware.bin"
 
 
 class GithubFirmwareUpdater{
