@@ -6,16 +6,16 @@ GithubFirmwareUpdater board;
 void setup(){
     Serial.begin(115200);
     Serial.println("setup try");
-    vTaskDelay(5000);
+    vTaskDelay(1000);
     Serial.println("");
-    board.setCredentials("SmartLabs","20120415H");
+    board.init();
+    board.setCredentials("SELECTRONICS","CSSAC202");
 
     board.connect();
 
-    vTaskDelay(5000);
-    //board->repeatedCall();
-
 }
 void loop(){
-     vTaskDelay(5000);
+    board.repeatedCall();
+
+     vTaskDelay(2000 / portTICK_PERIOD_MS);
 }

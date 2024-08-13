@@ -3,11 +3,14 @@
 
 
 GithubFirmwareUpdater::GithubFirmwareUpdater(void){
+
+}
+
+void GithubFirmwareUpdater::init(){
   this->interval = 1000;
   WiFi.mode(WIFI_STA);
 	WiFi.config(INADDR_NONE, INADDR_NONE, INADDR_NONE, INADDR_NONE);
   WiFi.setHostname("EnvSens");
-
 	// Delete old configuration
 	WiFi.disconnect(true);
 
@@ -52,7 +55,7 @@ void GithubFirmwareUpdater::connect() {
 	// Reset the counter
 	this->remainingAttempts = MAX_ATTEMPTS_QUANTITY;
   // Attempt the connection
-	WiFi.begin(this->SSID, this->PASSWORD);
+	WiFi.begin("SELECTRONICS","CSSAC202");
 }
 
 void GithubFirmwareUpdater::repeatedCall() {
@@ -70,10 +73,10 @@ void GithubFirmwareUpdater::repeatedCall() {
 
 void GithubFirmwareUpdater::connect_wifi() {
   Serial.println("Waiting for WiFi");
-  WiFi.begin("SmartLabs", "20120415H");
+  WiFi.begin("SELECTRONICS", "CSSAC202");
   while (WiFi.status() != WL_CONNECTED) {
-    vTaskDelay(5000);
-    WiFi.begin("SmartLabs", "20120415H");
+    vTaskDelay(1000);
+    WiFi.reconnect();
     Serial.println("Trying connection to wifi");
   }
   if(WiFi.status() == WL_CONNECTED){

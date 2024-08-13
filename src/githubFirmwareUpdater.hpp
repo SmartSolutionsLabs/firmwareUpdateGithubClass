@@ -56,6 +56,8 @@ class GithubFirmwareUpdater{
 
         GithubFirmwareUpdater();
 
+        void init();
+
         void connect_wifi();
 
         void firmwareUpdate();
