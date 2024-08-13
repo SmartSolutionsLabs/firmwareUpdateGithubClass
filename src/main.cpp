@@ -16,6 +16,6 @@ void setup(){
 }
 void loop(){
     board.repeatedCall();
-    Serial.println("yo soy el actualizado perrako");
+    Serial.println("despedite de tu Firmware Lince ");
     vTaskDelay(5000 / portTICK_PERIOD_MS);
 }
